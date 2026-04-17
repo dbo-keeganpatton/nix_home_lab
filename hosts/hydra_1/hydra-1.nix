@@ -7,11 +7,14 @@
   ];
 
   networking.hostName = "hydra-1"; 
+  networking.networkmanager.enable = true;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  networking.networkmanager.enable = true;
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
   services.k3s.clusterInit = true;
+  services.openssh.enable = true;
 
   users.users.eyelady = {
     isNormalUser = true;
@@ -31,10 +34,5 @@
       wget
   ];
 
-  #########################
-  #     K8 & SSH support  #
-  #########################
-  services.openssh.enable = true;
   system.stateVersion = "25.11";
-
 }

@@ -6,5 +6,37 @@
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "hydra-2";
+  networking.hostName = "hydra-2"; 
+  networking.networkmanager.enable = true;
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  services.k3s.serverAddr = "https://192.168.0.7:6443";
+  services.openssh.enable = true;
+
+  users.users.eyelady = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "sudo" ]; 
+  };
+
+  services.logind.settings = {
+    # Ensure the system stays on when the lid is closed
+        Login = {
+        HandleLidSwitch = "ignore";
+        HandleLidSwitchDocked = "ignore";
+      };
+    };
+
+  environment.systemPackages = with pkgs; [
+      kubernetes-helm
+      fastfetch
+      btop
+      neovim
+      vim     
+      wget
+  ];
+
+  system.stateVersion = "25.11";
 }
