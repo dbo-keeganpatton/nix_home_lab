@@ -1,0 +1,8 @@
+Add Pi to k3s Cluster:
+  Command: >
+    curl -sfL https://get.k3s.io | \
+    K3S_URL=<https://master.node.ip.address:port> \
+    K3S_TOKEN=<CLUSTER_TOKEN_VALUE> \
+    INSTALL_K3S_VERSION=<CURRENT_VERSION_OF_NIX_NODES> \
+    sh -
+
