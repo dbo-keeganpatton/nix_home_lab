@@ -29,10 +29,11 @@
   environment.systemPackages = with pkgs; [
       kubernetes-helm
       fastfetch
-      btop
+      starship
       neovim
-      vim     
+      btop
       wget
+      vim     
   ];
 
   system.stateVersion = "25.11";

@@ -1,3 +1,11 @@
-nixos-rebuild switch --flake .#hydra-1 \
-  --target-host hydra-1 \
-  --build-host hydra-1
+Rebuild K3s Node remotely:
+  Command: >
+    nixos-rebuild switch    \  
+    --flake .#<NODE_ID>     \  
+    --target-host <NODE_ID> \   
+    --build-host <NODE_ID>    \  
+    --use-remote-sudo
+
+
+Check Value of Cluster Token:
+  Command:
