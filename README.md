@@ -16,4 +16,4 @@ Project Hydra is a declarative, Nix-based personal cloud designed for total idem
 4. Infrastructure Autonomy: Enable personal digital sovereignty for application deployment lifecycles.  
 
 ## In-depth Documentation and Roadmap
-[Documentation Link](https://dbo-keeganpatton.github.io/nix_home_lab/)
+[Documentation Link](https://dbo-keeganpatton.github.io/project_hydra/)
